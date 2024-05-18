@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Coral Bleaching Across The World</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <link rel="icon" href="/coral_icons/branch.png">
+</head>
+<body>
+    <div class="filter-box">
+        <div class="slider-container">
+            <div class="filter-label">Observation Year</div>
+            <input type="range" min="2003" max="2025" value="2025" class="slider" id="mySlider">
+            <div class="slider-value" id="sliderValueText">All</div>
+        </div>
+        <div class="radio-container">
+            <div class="filter-label">Coral Type</div>
+            <label>
+              <input type="radio" name="filter" value="*" checked="checked" /> All
+            </label>
+            <label>
+              <input type="radio" name="filter" value="Boulder corals" /> Boulder corals
+            </label>
+            <label>
+              <input type="radio" name="filter" value="Branching corals" /> Branching corals
+            </label>
+            <label>
+              <input type="radio" name="filter" value="Plate corals" /> Plate corals
+            </label>
+            <label>
+              <input type="radio" name="filter" value="Soft corals" /> Soft corals
+            </label>
+        </div>
+    </div>
+    <div class="obs-popup" id="obs-popup">
+      <div class="obs-popup-content">
+        <div class="obs-popup-header">
+          <span class="close" id="obs-close">&times;</span>
+        </div>
+        <div class="popup-tabs">
+          <button class="tablinks" id="colorTab">Color</button>
+          <button class="tablinks" id="locationTab">Location</button>
+          <button class="tablinks" id="dateTab">Date</button>
+          <button class="tablinks" id="typeTab">Coral Type</button>
+          <button class="tablinks" id="conditionsTab">Conditions</button>
+        </div>
+        <div id="data" class="tabcontent">
+          Data
+        </div>
+        <div id="coralImage" class="tabcontent"></div>
+        <div id="content" class="tabcontent">
+          Content
+        </div>
+      </div>
+    </div>
+    <div id="map"></div>
+    <div id="img-container">
+        <img src="colorMatrix.png" alt="matrix">
+    </div>
+    <script type="module" src="slider.js"></script>   
+    <script type="module" src="map.js"></script>
+    <script type="module" src="observation.js"></script>
+</body>
+</html>
